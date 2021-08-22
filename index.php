@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-        #victor hugo
+
         require_once './vendor/autoload.php';
         use Core\ConfigController as Home;
         $url = new Home;
