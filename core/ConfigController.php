@@ -21,7 +21,7 @@ class ConfigController
                 $this->UrlController = $this->slug($this->UrlConjunto[0]);
             }
             else {
-                $this->UrlController = "Home";
+                $this->UrlController = CONTROLLER;
             }
 
             if(isset($this->UrlConjunto[1])) {
@@ -32,7 +32,7 @@ class ConfigController
             }
         }
         else {
-            $this->UrlController = "Home";
+            $this->UrlController = CONTROLLER;
             $this->UrlParametro = null;
         }
 
@@ -64,5 +64,12 @@ class ConfigController
         //Substituir " " por ""
         $UrlController = str_replace(" ", "", $UrlController);
         return $UrlController;
+    }
+
+    public function carregar() {
+
+        $classe = "\\Sts\\Controllers\\" .  $this->UrlController;
+        $carregarClase = new $classe;
+        $carregarClase->index();
     }
 }
