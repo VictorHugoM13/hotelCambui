@@ -17,7 +17,7 @@ class ConfigController
 
             $this->UrlConjunto = explode("/",$this->Url);
 
-            if(isset($this->UrlConjunto[0])){
+            if(isset($this->UrlConjunto[0])) {
                 $this->UrlController = $this->slug($this->UrlConjunto[0]);
             }
             else {

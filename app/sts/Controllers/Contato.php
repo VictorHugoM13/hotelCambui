@@ -1,5 +1,7 @@
 <?php
     namespace Sts\Controllers;
+    use Core\ConfigView;
+
     if (!defined('URL')) {
         header('Location : /pooii/');
         exit();
@@ -9,5 +11,6 @@
 
         public function index() {
             echo "Pagina Contato";
+            $carregarView = new ConfigView('Views/contato/contato');
         }
     }
