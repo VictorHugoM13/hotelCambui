@@ -10,7 +10,9 @@
     class Quartos {
 
         public function index() {
-            echo "Pagina Quartos";
+            echo "<h1>Pagina Controller Quartos</h1>";
+            $modelQuartos = new \Sts\Models\StsQuartos();
+            $modelQuartos->index();
             $carregarView = new ConfigView('Views/quartos/quartos');
 
         }

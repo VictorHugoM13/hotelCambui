@@ -10,7 +10,9 @@
     class SobreHotel {
 
         public function index() {
-            echo "Sobre o Hotel";
+            echo "<h1>Controller Sobre o Hotel</h1>";
+            $modelobreHotel= new \Sts\Models\StsSobreHotel();
+            $modelobreHotel->index();
             $carregarView = new ConfigView('Views/sobre/sobrehotel');
         }
     }

@@ -10,13 +10,13 @@ class ConfigView {
     public function __construct($Arquivo, array $Dados = null) {
         $this->Arquivo = $Arquivo;
         $this->Dados = $Dados;
-        echo $this->Arquivo;
+        echo "<h1>$this->Arquivo</h1>";
         $this->renderizar();
 
     }
 
     private function renderizar() {
-        echo "metodo renderizar";
+        echo "<h1>metodo renderizar</h1>";
         if (file_exists('app/sts/' . $this->Arquivo . '.php')) {
             include_once 'app/sts/' . $this->Arquivo . '.php';
         }

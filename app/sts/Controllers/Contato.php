@@ -10,7 +10,9 @@
     class Contato {
 
         public function index() {
-            echo "Pagina Contato";
+            echo "<h1>Pagina Controller Contato</h1>";
+            $modelContato= new \Sts\Models\StsContato();
+            $modelContato->index();
             $carregarView = new ConfigView('Views/contato/contato');
         }
     }

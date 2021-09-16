@@ -11,7 +11,10 @@
 
         public function index()
         {
-            echo "Pagina Controller Home" . "<br>";
+            echo "<h1>Pagina Controller Home</h1>";
+            $modelHome = new \Sts\Models\StsHome();
+            $modelHome->index();
+
             $carregarView = new ConfigView('Views/home/home');
         }
     }

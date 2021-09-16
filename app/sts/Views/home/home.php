@@ -1,3 +1,3 @@
 <?php
 
-    echo "Arquivo home.php";
+    echo "<h1>Arquivo home.php</h1>";
