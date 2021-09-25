@@ -15,12 +15,14 @@ class StsConn {
         try {
             //'mysql:host=localhost;port=3307;dbname=nome_banco,user,senha'
             if (self::$Connection==null) {
-                self::$Connection = new \PDO('mysql:host='.self::$Host.';port='.self::$Port.';dbname='.self::$DbName.'',self::$User,self::$Pass);
+                self::$Connection = new \PDO('mysql:host='.self::$Host.';charset=utf8;port='.self::$Port.';dbname='.
+                    self::$DbName,self::$User,self::$Pass);
             }
         }
         catch(\Exception $e) {
             echo "ERRO" . $e->getMessage() . "<br>Codigo: " . $e->getCode();
         }
+        return self::$Connection;
     }
 
     public function getConn() {
