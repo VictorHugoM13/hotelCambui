@@ -21,7 +21,7 @@ class StsRead extends StsConn {
         }
 
         $this->Select = "SELECT * FROM $Tabble $Termo";
-        echo "<br>" . $this->Select;
+        //echo "<br>" . $this->Select;
         $this->execInstrucao();
     }
 

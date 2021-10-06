@@ -9,13 +9,15 @@
 
     class Home {
 
-        public function index()
-        {
-            echo "<h1>Pagina Controller Home</h1>";
-            $modelHome = new \Sts\Models\StsHome();
-            $modelHome->index();
+        private $Result;
 
-            $carregarView = new ConfigView('Views/home/home');
+        public function index() {
+            //echo "<h1>Pagina Controller Home</h1>";
+            $modelHome = new \Sts\Models\StsHome();
+            $this->Dados = $modelHome->index();
+
+
+            $carregarView = new ConfigView('Views/home/home', $this->Dados);
         }
     }
 

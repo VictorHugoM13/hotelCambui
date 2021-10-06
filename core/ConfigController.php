@@ -36,9 +36,9 @@ class ConfigController
             $this->UrlParametro = null;
         }
 
-        echo "URL: " . $this->Url ."<br>";
-        echo "Url Controller: " . $this->UrlController ."<br>";
-        echo "Url Parametro: " . $this->UrlParametro ."<br>";
+        //echo "URL: " . $this->Url ."<br>";
+        //echo "Url Controller: " . $this->UrlController ."<br>";
+        //echo "Url Parametro: " . $this->UrlParametro ."<br>";
 
     }
     private function limparUrl() {
