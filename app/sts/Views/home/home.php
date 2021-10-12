@@ -9,24 +9,9 @@
 
 <?php
 
-    //echo "<h1>Arquivo home.php</h1>";
-    //var_dump($this->Dados);
     $cont = 1;
     foreach ($this->Dados['sts_carousels'] as $carousel) {
-        /*'id' => string '2' (length=1)
-          'nome' => string 'Segundo Exemplo' (length=15)
-          'imagem' => string 'logo3.fw.png' (length=12)
-          'titulo' => string 'PÓS-GRADUAÇÃO ONLINE' (length=23)
-          'descricao' => string 'Aprendizagem que conecta com Internet grátis!' (length=46)
-          'posicao_text' => string 'text-left' (length=9)
-          'titulo_botao' => string 'INSCREVA-SE' (length=11)
-          'link' => string 'https://faex.edu.br' (length=19)
-          'ordem' => string '2' (length=1)
-          'adms_cor_id' => string '5' (length=1)
-          'adms_sit_id' => string '1' (length=1)
-          'created' => string '2018-05-23 00:00:00' (length=19)
-          'modified' => string '2020-08-20 23:21:04' (length=19)
-         */
+       
         extract($carousel);
 ?>
         <div class="carousel-item <?php if ($cont == 1) { echo "active";} ?>">
