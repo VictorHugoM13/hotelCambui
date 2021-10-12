@@ -2,8 +2,7 @@
 
 namespace Sts\Models;
 
-class StsHome {
-
+class StsHistoria {
     private $Result;
 
     public function index() {
@@ -13,9 +12,10 @@ class StsHome {
         $connect->getConn();*/
 
         $listar = new helper\StsRead();
-        $listar->execRead('sts_carousels', "WHERE adms_sit_id=:adms_sit_id LIMIT :limit", ":adms_sit_id=1&:limit=3");
-        $this->Result['sts_carousels'] = $listar->getResultado();
+        $listar->execRead('sts_historia', "LIMIT :limit", ":limit=1");
+        $this->Result = $listar->getResultado();
         return $this->Result;
 
     }
+
 }

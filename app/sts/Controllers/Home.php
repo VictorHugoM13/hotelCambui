@@ -3,7 +3,7 @@
     use Core\ConfigView;
 
     if (!defined('URL')) {
-        header('Location : /pooii/');
+        header('Location : /siteHotel/');
         exit();
     }
 
@@ -13,8 +13,15 @@
 
         public function index() {
             //echo "<h1>Pagina Controller Home</h1>";
-            $modelHome = new \Sts\Models\StsHome();
-            $this->Dados = $modelHome->index();
+            $modelHome = new \Sts\Models\StsCarousels();
+            $this->Dados['sts_carousels'] = $modelHome->index();
+
+            $modelServicos = new \Sts\Models\StsServicos();
+            $this->Dados['sts_servicos'] = $modelServicos->index();
+
+            $modelHistoria = new \Sts\Models\StsHistoria();
+            $this->Dados['sts_historia'] = $modelHistoria->index();
+
 
 
             $carregarView = new ConfigView('Views/home/home', $this->Dados);
