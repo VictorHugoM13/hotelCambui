@@ -3,9 +3,8 @@
 namespace Sts\Models;
 
 class StsReservas {
-    public function index()
-    {
-        echo "<h1> Model Reservas</h1>";
+    public function index() {
+        
         $connect = new helper\StsConn();
         $connect->getConn();
     }

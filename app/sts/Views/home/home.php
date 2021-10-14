@@ -44,8 +44,8 @@
         foreach ($this->Dados['sts_historia'] as $historia) {
             extract($historia);
     ?>
-        <section>
-            <div class="container mb-5 bg-light p-3 my-5">
+        
+        <div class="container mb-5 bg-light p-3 my-5">
             <div class="row">
                 <div class="col-sm-12 text-dark my-5">
                     <h1><?php echo $titulo;?></h1>
@@ -60,8 +60,8 @@
                 </div>
             </div>
 
-            </div>
-        </section>
+        </div>
+        
         <?php
     }
         ?>
