@@ -53,7 +53,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <img src="<?php echo URL;?>assets/imagens/<?php echo $imagem;?>" class="img-fluid" alt="">
+                    <img class="featurette-image img-fluid mx-auto" src="<?php echo URL;?>assets/imagens/<?php echo $imagem;?>" alt="">
                 </div>
                 <div class="col-sm-6 my-5">
                     <p><?php echo $descricao;?></p>
