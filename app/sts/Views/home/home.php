@@ -69,55 +69,49 @@
     
     <?php
 
-        foreach ($this->Dados['sts_servicos'] as $servicos) {
-
-            extract($servicos);
+        extract($this->Dados['sts_servicos'][0]);
             
-        ?>
-            <div class="jumbotron servicos">
-        <div class="container">
-            <h2 class="display-4 text-center" style="margin-bottom: 40px;"><?php echo $titulo;?></h2>
-            <div class="card-deck">
-                <div class="card text-center card-um">
-                    <div class="icon-row tamanh-icone">
-								<span class="step size-96 text-danger">
-									<i class="<?php echo $icone_um;?>"></i>
-								</span>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $nome_um;?></h5>
-                        <p class="card-text lead"><?php echo $descricao_um;?></p>
-                    </div>
-                </div>
-                <div class="card text-center card-dois">
-                    <div class="icon-row tamanh-icone">
-								<span class="step size-96 text-danger">
-									<i class="<?php echo $icone_dois;?>"></i>
-								</span>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $nome_dois;?></h5>
-                        <p class="card-text lead"><?php echo $descricao_dois;?></p>
-                    </div>
-                </div>
-                <div class="card text-center card-tres">
-                    <div class="icon-row tamanh-icone ">
-								<span class="step size-96 text-danger">
-									<i class="<?php echo $icone_tres;?>"></i>
-								</span>
-                    </div>
+    ?>
+        <div class="jumbotron servicos">
+            <div class="container">
+                <h2 class="display-4 text-center" style="margin-bottom: 40px;"><?php echo $titulo;?></h2>
+                <div class="card-deck">
+                    <div class="card text-center card-um">
+                        <div class="icon-row tamanh-icone">
+                            <span class="step size-96 text-danger">
+                                <i class="<?php echo $icone_um;?>"></i>
+                            </span>
+                        </div>
                         <div class="card-body">
-                        <h5 class="card-title"><?php echo $nome_tres;?></h5>
-                        <p class="card-text lead"><?php echo $descricao_tres;?></p>
+                            <h5 class="card-title"><?php echo $nome_um;?></h5>
+                            <p class="card-text lead"><?php echo $descricao_um;?></p>
+                        </div>
+                    </div>
+                    <div class="card text-center card-dois">
+                        <div class="icon-row tamanh-icone">
+                            <span class="step size-96 text-danger">
+                                <i class="<?php echo $icone_dois;?>"></i>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $nome_dois;?></h5>
+                            <p class="card-text lead"><?php echo $descricao_dois;?></p>
+                        </div>
+                    </div>
+                    <div class="card text-center card-tres">
+                        <div class="icon-row tamanh-icone ">
+                            <span class="step size-96 text-danger">
+                                <i class="<?php echo $icone_tres;?>"></i>
+                            </span>
+                        </div>
+                            <div class="card-body">
+                            <h5 class="card-title"><?php echo $nome_tres;?></h5>
+                            <p class="card-text lead"><?php echo $descricao_tres;?></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <?php
-        }
-
-    ?>
 
     
 </main>
