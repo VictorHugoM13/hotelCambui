@@ -1,13 +1,13 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-danger">
         <div class="container">
-            <img class="rounded-circle mr-3" src="<?php echo URL;?>assets/imagens/logo.jpg" alt="Logo do Hotel">
+            <img class="rounded-circle mr-3" src="<?php echo URL;?>assets/imagens/logo.png" alt="Logo do Hotel">
             <a class="navbar-brand" href="Home">Hotel Cambuí</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav m-auto">
                     <li class="nav-item menu">
                         <a class="nav-link" href="Home">Home </a>
                     </li>
@@ -23,8 +23,16 @@
                     <li class="nav-item menu">
                         <a class="nav-link" href="Reservas">Reservas</a>
                     </li>
+
                 </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item menu">
+                        <a class="nav-link" href="Login">Login </a>
+                    </li>
+                </ul>
+
             </div>
+
         </div>
     </nav>
 </header>
