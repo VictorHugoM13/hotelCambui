@@ -9,10 +9,12 @@
 
     class SobreHotel {
 
+        private $Result;
+
         public function index() {
-            echo "<h1>Controller Sobre o Hotel</h1>";
-            $modelobreHotel= new \Sts\Models\StsSobreHotel();
-            $modelobreHotel->index();
-            $carregarView = new ConfigView('Views/sobre/sobrehotel');
+
+            $modelSobreHotel= new \Sts\Models\StsSobreHotel();
+            $this->Dados['sts_sobre'] = $modelSobreHotel->index();
+            $carregarView = new ConfigView('Views/sobre/sobrehotel', $this->Dados);
         }
     }

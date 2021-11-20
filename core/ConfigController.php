@@ -8,6 +8,7 @@ class ConfigController
     private $UrlController;
     private $UrlParametro;
     private static $Format;
+    private $UrlMetodo;
 
     public function __construct() {
         if(!empty(filter_input(INPUT_GET, 'url', FILTER_DEFAULT))) {
@@ -25,7 +26,14 @@ class ConfigController
             }
 
             if(isset($this->UrlConjunto[1])) {
-                $this->UrlParametro = $this->slug($this->UrlConjunto[1]);
+                $this->UrlMetodo = $this->slugMetodo($this->UrlConjunto[1]);
+            }
+            else {
+                $this->UrlMetodo = METODO;
+            }
+
+            if(isset($this->UrlConjunto[2])) {
+                $this->UrlParametro = $this->slug($this->UrlConjunto[2]);
             }
             else {
                 $this->UrlParametro = null;
@@ -39,6 +47,7 @@ class ConfigController
         //echo "URL: " . $this->Url ."<br>";
         //echo "Url Controller: " . $this->UrlController ."<br>";
         //echo "Url Parametro: " . $this->UrlParametro ."<br>";
+        #echo "Url Metodo: " . $this->UrlMetodo;
 
     }
     private function limparUrl() {
@@ -55,21 +64,25 @@ class ConfigController
         $this->Url = strtolower($this->Url);
     }
 
-    private function slug($UrlController) {
-        $UrlController = strtolower($UrlController);
-        //Substituir - por " "
-        $UrlController = str_replace("-", " ", $UrlController);
-        //Primeira letra em maiuscula
-        $UrlController = ucwords($UrlController);
-        //Substituir " " por ""
-        $UrlController = str_replace(" ", "", $UrlController);
-        return $UrlController;
+    private function slug($Valor){
+        $UrlValor = strtolower($Valor);
+        $UrlValor = explode("-",$UrlValor);
+        $UrlValor = implode(" ",$UrlValor);
+        $UrlValor = ucwords($UrlValor);
+        $UrlValor = str_replace(" ", "", $UrlValor);
+        return $UrlValor;
+    }
+
+    private function slugMetodo($UrlMetodo) {
+        $UrlMetodo = $this->slug($UrlMetodo);
+        $UrlMetodo = lcfirst($UrlMetodo); // primeira minusculo
+        return $UrlMetodo;
     }
 
     public function carregar() {
 
         $classe = "\\Sts\\Controllers\\" .  $this->UrlController;
         $carregarClase = new $classe;
-        $carregarClase->index();
+        $carregarClase->{$this->UrlMetodo}();
     }
 }

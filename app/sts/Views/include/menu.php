@@ -1,7 +1,7 @@
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-danger">
+    <nav class="navbar navbar-expand-md navbar-dark bg-danger">
         <div class="container">
-            <img class="rounded-circle mr-3" src="<?php echo URL;?>assets/imagens/logo.png" alt="Logo do Hotel">
+            <a href="home"><img class="rounded-circle mr-3" src="<?php echo URL;?>assets/imagens/logo.png" alt="Logo do Hotel"></a>
             <a class="navbar-brand" href="Home">Hotel Cambuí</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item menu">
-                        <a class="nav-link" href="Login">Login </a>
+                        <a class="nav-link" href="cadastrar-usuario">Login </a>
                     </li>
                 </ul>
 

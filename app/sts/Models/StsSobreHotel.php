@@ -3,12 +3,14 @@
 namespace Sts\Models;
 
 class StsSobreHotel {
+    private $Result;
 
-    public function index()
-    {
-        echo "<h1> Model Sobre o Hotel</h1>";
-        $connect = new helper\StsConn();
-        $connect->getConn();
+    public function index() {
+
+        $listar = new helper\StsRead();
+        $listar->execRead('sts_sobre', "LIMIT :limit", ":limit=1");
+        $this->Result = $listar->getResultado();
+        return $this->Result;
     }
 
 }

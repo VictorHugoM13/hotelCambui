@@ -12,7 +12,7 @@ class ConfigView {
         $this->Dados = $Dados;
         //echo "<h1>$this->Arquivo</h1>";
 
-        if ($_SERVER["REQUEST_URI"] === '/siteHotel/Login') {
+        if ($_SERVER["REQUEST_URI"] === '/siteHotel/cadastrar-usuario') {
             $this->renderizarLogin();
         }
         else {
