@@ -12,8 +12,8 @@ class CadastrarUsuario {
 
         $this->Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-        if (!empty($this->Dados['CadUserLogin'])) {
-            unset($this->Dados['CadUserLogin']);
+        if (!empty($this->Dados['CadUserCadastro'])) {
+            unset($this->Dados['CadUserCadastro']);
 
             $cadastro = new \Sts\Models\helper\StsCreate();
             $cadastro->execCreate('tb_cliente', $this->Dados);
@@ -22,9 +22,12 @@ class CadastrarUsuario {
         }
         else {
             $carregarView = new \Core\ConfigView('Views/login/login', $this->Dados);
+            $carregarView->renderizarLogin();
 
         }
 
-
     }
+
+
+
 }

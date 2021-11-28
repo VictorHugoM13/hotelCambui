@@ -12,5 +12,6 @@
         public function index() {
         
             $carregarView = new ConfigView('Views/contato/contato');
+            $carregarView->renderizar();
         }
     }

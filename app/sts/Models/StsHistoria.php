@@ -3,13 +3,10 @@
 namespace Sts\Models;
 
 class StsHistoria {
+
     private $Result;
 
     public function index() {
-        //echo "<h1> Model Home</h1>";
-        /*
-        $connect = new helper\StsConn();
-        $connect->getConn();*/
 
         $listar = new helper\StsRead();
         $listar->execRead('sts_historia', "LIMIT :limit", ":limit=1");
@@ -17,5 +14,4 @@ class StsHistoria {
         return $this->Result;
 
     }
-
 }

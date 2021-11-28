@@ -22,9 +22,8 @@
             $modelHistoria = new \Sts\Models\StsHistoria();
             $this->Dados['sts_historia'] = $modelHistoria->index();
 
-
-
             $carregarView = new ConfigView('Views/home/home', $this->Dados);
+            $carregarView->renderizar();
         }
     }
 

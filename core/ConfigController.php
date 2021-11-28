@@ -83,6 +83,11 @@ class ConfigController
 
         $classe = "\\Sts\\Controllers\\" .  $this->UrlController;
         $carregarClase = new $classe;
-        $carregarClase->{$this->UrlMetodo}();
+        if ($this->UrlParametro) {
+            $carregarClase->{$this->UrlMetodo}($this->UrlParametro);
+        }
+        else {
+            $carregarClase->{$this->UrlMetodo}();
+        }
     }
 }

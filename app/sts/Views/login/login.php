@@ -11,6 +11,7 @@
     <script src="<?php echo URL;?>assets/js/login.js"></script>
     <title>Document</title>
 </head>
+
 <body>
 <div class="container">
     <div class="row">
@@ -32,33 +33,27 @@
                         <div class="col-lg-12">
                             <form id="login-form" action="" method="post" role="form" style="display: block;">
                                 <div class="form-group">
-                                    <input type="email" name="username" id="username" tabindex="1" class="form-control" placeholder="E-mail" value="" required>
+                                    <input type="hidden" name="id" tabindex="1" class="form-control" placeholder="" value="">
+
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Senha" required>
+                                    <input type="email" name="email" id="username" tabindex="1" class="form-control" placeholder="E-mail" value="" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="senha" id="password" tabindex="2" class="form-control" placeholder="Senha" required>
                                 </div>
                                 <div class="form-group text-center">
-                                    <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                                    <label for="remember"> Lembrar Senha</label>
+                                    <label for=""> Faça seu Login!</label>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <button id="signup" class="form-control btn btn-login">Entrar</button>
-
+                                            <input type="submit" name="UserLogin" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Entrar">
 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="text-center">
-                                                <a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Esqueceu sua senha?</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </form>
                             <form id="register-form" action="" method="post" role="form" style="display: none;" >
 
@@ -75,13 +70,14 @@
                                     <input type="password" name="senha" tabindex="2" class="form-control" placeholder="Digite uma senha" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirme sua senha" required>
+                                    <input type="password" name="comfirmarSenha" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirme sua senha" required>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="CadUserLogin">
+                                            <input type="submit" name="CadUserCadastro" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Cadastrar">
+
                                         </div>
                                     </div>
                                 </div>

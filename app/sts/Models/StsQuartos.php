@@ -3,9 +3,14 @@
 namespace Sts\Models;
 
 class StsQuartos {
+
+    private $Result;
+
     public function index() {
-        echo "<h1> Model Quartos</h1>";
-        $connect = new helper\StsConn();
-        $connect->getConn();
+
+        $listar = new helper\StsRead();
+        $listar->execRead('tb_quarto');
+        $this->Result = $listar->getResultado();
+        return $this->Result;
     }
 }

@@ -16,5 +16,6 @@
             $modelSobreHotel= new \Sts\Models\StsSobreHotel();
             $this->Dados['sts_sobre'] = $modelSobreHotel->index();
             $carregarView = new ConfigView('Views/sobre/sobrehotel', $this->Dados);
+            $carregarView->renderizar();
         }
     }

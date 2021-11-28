@@ -9,10 +9,17 @@
 
     class Reservas {
 
+        private $Dados;
+
         public function index() {
-            echo "<h1>Pagina Controller Reservas</h1>";
-            $modelReservas= new \Sts\Models\StsReservas();
-            $modelReservas->index();
-            $carregarView = new ConfigView('Views/reservas/reservas');
+            $modelQuartos= new \Sts\Models\StsQuartos();
+            $this->Dados['tb_quarto'] = $modelQuartos->index();
+
+            $carregarView = new ConfigView('Views/reservas/reservas', $this->Dados);
+            $carregarView->renderizar();
         }
+
+
+
+
     }

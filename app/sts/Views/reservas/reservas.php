@@ -22,12 +22,24 @@
 					</div>
                 
                     <div class="form-group col-md-6">
+
+
+
                         <label>Tipo do Quarto</label>
-                        <select class="custom-select my-1 mr-sm-2" id="">
-                        
-                            <option value="1">Tipo 1</option>
-                            <option value="2">Tipo 2</option>
-                            <option value="3">Tipo 3</option>
+                        <select class="custom-select my-1 mr-sm-2" name="">
+                            <?php
+                            #var_dump($this->Dados['tb_quarto']);
+                            foreach ($this->Dados['tb_quarto'] as $quarto) {
+                                extract($quarto);
+                                #var_dump($quarto);
+                                ?>
+                                <option value="<?php echo $numero_quarto;?>"><?php echo $tipo_quarto?></option>
+                            <?php
+
+
+                            }
+                            ?>
+
                         </select>
                     </div>
                     <div class="form-group col-md-6">
@@ -39,7 +51,7 @@
 			</form>
             <div class="row">
                 <div class="col-md-6">
-                    <button type="button" class="btn btn-success">Realizar Reserva</button>
+                    <button type="button" name = "CadReservas" class="btn btn-success">Realizar Reserva</button>
                 </div>
                 <div class="col-md-6 ">    
                     <button type="button" class="btn btn-danger">Cancelar</button>
