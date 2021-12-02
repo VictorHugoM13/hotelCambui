@@ -69,9 +69,6 @@
                                 <div class="form-group">
                                     <input type="password" name="senha" tabindex="2" class="form-control" placeholder="Digite uma senha" required>
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" name="comfirmarSenha" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirme sua senha" required>
-                                </div>
 
                                 <div class="form-group">
                                     <div class="row">

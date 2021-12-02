@@ -12,6 +12,9 @@
         private $Result;
 
         public function index() {
+            #if (!isset($_SESSION['email'])) {
+             #   header('Location: '. URL . 'login');
+            #}
             //echo "<h1>Pagina Controller Home</h1>";
             $modelHome = new \Sts\Models\StsCarousels();
             $this->Dados['sts_carousels'] = $modelHome->index();

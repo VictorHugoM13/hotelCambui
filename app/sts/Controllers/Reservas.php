@@ -12,11 +12,26 @@
         private $Dados;
 
         public function index() {
+
+
+            $this->Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+            if (!empty($this->Dados['CadReservas'])) {
+                unset($this->Dados['CadReservas']);
+                unset($this->Dados['nome']);
+                unset($this->Dados['email']);
+                $reserva = new \Sts\Models\helper\StsCreate();
+                $reserva->execCreate('tb_reserva', $this->Dados);
+
+                echo "<script>alert('Cliente cadastrado com sucesso!!');</script>";
+            }
             $modelQuartos= new \Sts\Models\StsQuartos();
             $this->Dados['tb_quarto'] = $modelQuartos->index();
 
             $carregarView = new ConfigView('Views/reservas/reservas', $this->Dados);
+
             $carregarView->renderizar();
+
+
         }
 
 

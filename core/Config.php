@@ -1,6 +1,8 @@
 <?php
 
-    session_start();
+    if (!isset($_SESSION)) {
+        session_start();
+    }
     ob_start();
     define('URL', 'http://localhost/siteHotel/');
     define('URLADM', 'http://localhost/siteHotel/adm');

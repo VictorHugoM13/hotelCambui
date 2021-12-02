@@ -26,9 +26,28 @@
 
                 </ul>
                 <ul class="navbar-nav ml-auto">
+                    <?php
+
+                        if (isset($_SESSION['email'])) {
+                            ?>
                     <li class="nav-item menu">
-                        <a class="nav-link" href="login">Login </a>
+                        <a class="nav-link" href="login"><?php echo $_SESSION['nome'];?> </a>
                     </li>
+                    <li class="nav-item menu">
+                          <a class="nav-link" href="login">Sair </a>
+                    </li>
+                                <?php
+                        }
+
+                        else {
+                            ?>
+                                <li class="nav-item menu">
+                                    <a class="nav-link" href="login">Login </a>
+                                </li>
+                            <?php
+                        }
+                    ?>
+
                 </ul>
 
 
