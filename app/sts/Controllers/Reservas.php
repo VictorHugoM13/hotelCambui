@@ -21,8 +21,8 @@
                 unset($this->Dados['email']);
                 $reserva = new \Sts\Models\helper\StsCreate();
                 $reserva->execCreate('tb_reserva', $this->Dados);
-
-                echo "<script>alert('Cliente cadastrado com sucesso!!');</script>";
+                echo "<script>alert('Reserva realizada com Sucesso!');</script>";
+                header('Location: '. URL . 'home');
             }
             $modelQuartos= new \Sts\Models\StsQuartos();
             $this->Dados['tb_quarto'] = $modelQuartos->index();

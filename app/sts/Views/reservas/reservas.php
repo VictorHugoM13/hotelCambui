@@ -5,13 +5,30 @@
 			<form method="post">
 				<div class="form-row">
 					<div class="form-group col-md-6">
+                        <?php
+
+                        if (isset($_SESSION['email'])) {
+                        ?>
 						<label>Nome para Reserva</label>
                         <input type="hidden" name="id_cliente" value="<?php echo $_SESSION['id'];?>">
-						<input type="text" class="form-control" name="nome" value="<?php echo $_SESSION['nome'];?>">
+						<input type="text" class="form-control" name="nome" value="<?php echo $_SESSION['nome'];?>" readonly>
+                            <?php
+                        }
+                        else {
+                            ?>
+                            <label>Nome para Reserva</label>
+                            <input type="text" class="form-control" name="" value="" required>
+
+                            <?php
+                        }
+                        ?>
 					</div>
+
+
 					<div class="form-group col-md-6">
 						<label>E-mail</label>
-						<input type="email" name="email" class="form-control" placeholder="Seu E-mail">
+
+						<input type="email" name="email" class="form-control" value="<?php echo $_SESSION['email'];?>" readonly>
 					</div>
                     <div class="form-group col-md-6">
 						<label>Data de Check-in</label>
@@ -27,14 +44,14 @@
 
 
                         <label>Tipo do Quarto</label>
-                        <select class="custom-select my-1 mr-sm-2" name="numero_quarto">
+                        <select class="custom-select my-1 mr-sm-2" name="id_quarto">
                             <?php
                             #var_dump($this->Dados['tb_quarto']);
                             foreach ($this->Dados['tb_quarto'] as $quarto) {
                                 extract($quarto);
                                 #var_dump($quarto);
                                 ?>
-                                <option value="<?php echo $numero_quarto;?>"><?php echo $tipo_quarto?></option>
+                                <option value="<?php echo $id;?>"><?php echo $tipo_quarto?></option>
                             <?php
 
 
