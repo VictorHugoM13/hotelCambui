@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Tempo de geração: 28-Nov-2021 às 13:37
+-- Tempo de geração: 06-Dez-2021 às 19:23
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.3.21
 
@@ -20,6 +20,23 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `hotelcambui`
 --
+
+DELIMITER $$
+--
+-- Funções
+--
+DROP FUNCTION IF EXISTS `fnc_soma_diaria`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `fnc_soma_diaria` (`par_id` INT) RETURNS INT(11) BEGIN
+	
+	DECLARE valor_total float;
+	SET valor_total = (SELECT DATEDIFF(checkout, checkin)*tb_quarto.valor_diaria FROM tb_quarto
+    	INNER JOIN tb_reserva on tb_reserva.id_quarto = tb_quarto.id and tb_quarto.id = par_id);
+	RETURN valor_total;
+
+
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -150,17 +167,20 @@ CREATE TABLE IF NOT EXISTS `tb_cliente` (
   `email` varchar(60) NOT NULL,
   `senha` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_cliente`
 --
 
 INSERT INTO `tb_cliente` (`id`, `cpf`, `nome`, `email`, `senha`) VALUES
-(1, '11879934680', 'Victor', 'victor_osk8@hotmail.com', '123'),
-(2, '11879934680', 'joao', 'joao@gmail.com', '123'),
-(3, '11879934680', 'Victor', 'victor_osk8@hotmail.com', '123'),
-(4, '11879934680', 'Victor', 'victor_osk8@hotmail.com', '123');
+(5, '11879934680', 'Victor', 'victor_osk8@hotmail.com', '123'),
+(6, '11879934680', 'joao', 'joao@gmail.com', '123'),
+(7, '11879934680', 'Victor', 'd@gmail.com', '123'),
+(8, 'testeee', 'Victor', 'jose@gmail.com', '123'),
+(9, 'DS', 'Lucas', 'lucas@gmail.com', '123'),
+(10, 'sdsds', 'DS', 'a@gmail.com', '123'),
+(11, '654', 'Joana', 'joana@gmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -170,23 +190,23 @@ INSERT INTO `tb_cliente` (`id`, `cpf`, `nome`, `email`, `senha`) VALUES
 
 DROP TABLE IF EXISTS `tb_quarto`;
 CREATE TABLE IF NOT EXISTS `tb_quarto` (
-  `numero_quarto` char(2) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tipo_quarto` varchar(30) DEFAULT NULL,
   `descricao` varchar(255) DEFAULT NULL,
   `valor_diaria` float DEFAULT NULL,
   `capacidade_quarto` int(11) DEFAULT NULL,
   `status_quarto` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`numero_quarto`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_quarto`
 --
 
-INSERT INTO `tb_quarto` (`numero_quarto`, `tipo_quarto`, `descricao`, `valor_diaria`, `capacidade_quarto`, `status_quarto`) VALUES
-('1', 'Suite Solteiro', 'Um quarto simples mas muito aconchegante com uma cama solteiro, suite, serviços como TV a Cabo, wifi inclusos', 100, 1, 'disponivel'),
-('2', 'Suite Casal', 'Um quarto simples mas com muito conforto para o casal com uma cama de casal, suite, serviços como TV a Cabo, wifi inclusos', 150, 2, 'disponivel'),
-('3', 'Suite duplo Casal', 'Um quarto simples mas com muito conforto para os casais com duas cama de casal, suite, serviços como TV a Cabo, wifi inclusos', 200, 4, 'disponivel');
+INSERT INTO `tb_quarto` (`id`, `tipo_quarto`, `descricao`, `valor_diaria`, `capacidade_quarto`, `status_quarto`) VALUES
+(1, 'Suite Solteiro', 'Um quarto simples mas muito aconchegante com uma cama solteiro, suite, serviços como TV a Cabo, wifi inclusos', 100, 1, 'disponivel'),
+(2, 'Suite Casal', 'Um quarto simples mas com muito conforto para o casal com uma cama de casal, suite, serviços como TV a Cabo, wifi inclusos', 150, 2, 'disponivel'),
+(3, 'Suite duplo Casal', 'Um quarto simples mas com muito conforto para os casais com duas cama de casal, suite, serviços como TV a Cabo, wifi inclusos', 200, 4, 'disponivel');
 
 -- --------------------------------------------------------
 
@@ -198,14 +218,26 @@ DROP TABLE IF EXISTS `tb_reserva`;
 CREATE TABLE IF NOT EXISTS `tb_reserva` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_cliente` int(11) DEFAULT NULL,
-  `numero_quarto` int(11) DEFAULT NULL,
+  `id_quarto` int(11) DEFAULT NULL,
   `checkin` date DEFAULT NULL,
   `checkout` date DEFAULT NULL,
-  `valor_toal` float DEFAULT NULL,
+  `valor_total` float DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_cliente` (`id_cliente`),
-  KEY `numero_quarto` (`numero_quarto`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  KEY `id_quarto` (`id_quarto`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_reserva`
+--
+
+INSERT INTO `tb_reserva` (`id`, `id_cliente`, `id_quarto`, `checkin`, `checkout`, `valor_total`) VALUES
+(1, 5, 1, '2021-12-04', '2021-12-05', NULL),
+(2, 11, 1, '2021-12-03', '2021-12-16', NULL),
+(3, 11, 1, '2021-12-03', '2021-12-16', NULL),
+(4, 11, 1, '2021-12-02', '2021-12-10', NULL),
+(5, 5, 2, '2021-12-18', '2021-12-31', NULL),
+(6, 5, 1, '2021-12-18', '2021-12-22', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

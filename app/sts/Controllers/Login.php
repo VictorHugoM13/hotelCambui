@@ -13,9 +13,9 @@ class Login {
         }
         $this->Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         if (!empty($this->Dados['UserLogin'])) {
-            $vizualizarLogin = new \Sts\Models\StsLogin();
-            $vizualizarLogin->login($this->Dados);
-            if ($vizualizarLogin->getResultado()) {
+            $realizarLogin = new \Sts\Models\StsLogin();
+            $realizarLogin->login($this->Dados);
+            if ($realizarLogin->getResultado()) {
                 header('Location: '. URL . 'home');
 
             }

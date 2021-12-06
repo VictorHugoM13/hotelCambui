@@ -13,5 +13,5 @@
     define('HOST', 'localhost');
     define('USER', 'root');
     define('PASS', '');
-    define('DBNAME', 'hotelcambui');
+    define('DBNAME', 'teste');
     define('PORT', '3307');

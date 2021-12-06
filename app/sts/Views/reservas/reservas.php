@@ -26,9 +26,23 @@
 
 
 					<div class="form-group col-md-6">
-						<label>E-mail</label>
 
-						<input type="email" name="email" class="form-control" value="<?php echo $_SESSION['email'];?>" readonly>
+                        <?php
+                        if (isset($_SESSION['email'])) {
+                            ?>
+                            <label>E-mail</label>
+
+                            <input type="email" name="email" class="form-control" value="<?php echo $_SESSION['email'];?>" readonly>
+                            <?php
+                        }
+                        else {
+                            ?>
+                            <label>E-mail</label>
+
+                            <input type="email" name="email" class="form-control" placeholder="Digite seu e-mail">
+                            <?php
+                        }
+                        ?>
 					</div>
                     <div class="form-group col-md-6">
 						<label>Data de Check-in</label>
