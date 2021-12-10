@@ -31,10 +31,10 @@
                         if (isset($_SESSION['email'])) {
                             ?>
                     <li class="nav-item menu">
-                        <a class="nav-link" href="login"><?php echo $_SESSION['nome'];?> </a>
+                        <a class="nav-link" href=""><?php echo $_SESSION['nome'];?> </a>
                     </li>
                     <li class="nav-item menu">
-                          <a class="nav-link" href="login">Sair </a>
+                          <a class="nav-link" href="cliente">Sair </a>
                     </li>
                                 <?php
                         }
@@ -42,7 +42,7 @@
                         else {
                             ?>
                                 <li class="nav-item menu">
-                                    <a class="nav-link" href="login">Login </a>
+                                    <a class="nav-link" href="cliente">Login </a>
                                 </li>
                             <?php
                         }

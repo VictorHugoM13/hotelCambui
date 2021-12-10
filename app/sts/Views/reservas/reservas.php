@@ -46,11 +46,11 @@
 					</div>
                     <div class="form-group col-md-6">
 						<label>Data de Check-in</label>
-						<input type="date" name="checkin" class="form-control" >
+						<input type="date" id="checkin" name="checkin" class="form-control" >
 					</div>
                     <div class="form-group col-md-6">
 						<label>Data de Check-out</label>
-						<input type="date" name="checkout" class="form-control">
+						<input type="date" id="checkout" name="checkout" class="form-control">
 					</div>
                 
                     <div class="form-group col-md-6">
@@ -67,7 +67,6 @@
                                 ?>
                                 <option value="<?php echo $id;?>"><?php echo $tipo_quarto?></option>
                             <?php
-
 
                             }
                             ?>
@@ -90,7 +89,6 @@
                 </div>
             </div>
 
-            
            
 		</div>	
 	</div>

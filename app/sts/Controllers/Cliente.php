@@ -2,29 +2,39 @@
 
 namespace Sts\Controllers;
 
-class Login {
+class Cliente {
 
     private $Dados;
 
     public function index() {
-        # Validando Login
+
         if (isset($_SESSION['email'])) {
             session_destroy();
         }
         $this->Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+        $this->realizarLogin();
+        $this->realizarCadastro();
+
+    }
+
+    # Validando Login
+    public function realizarLogin() {
         if (!empty($this->Dados['UserLogin'])) {
-            $realizarLogin = new \Sts\Models\StsLogin();
+            $realizarLogin = new \Sts\Models\StsCliente();
             $realizarLogin->login($this->Dados);
             if ($realizarLogin->getResultado()) {
-                header('Location: '. URL . 'home');
+                header('Location: ' . URL . 'home');
 
             }
             else {
                 echo "<script>alert('E-mail ou senha inválido!!');</script>";
             }
         }
+    }
 
-        # Validando Cadastro
+    # Validando Cadastro
+    public function realizarCadastro() {
         if (!empty($this->Dados['CadUserCadastro'])) {
 
             unset($this->Dados['CadUserCadastro']);

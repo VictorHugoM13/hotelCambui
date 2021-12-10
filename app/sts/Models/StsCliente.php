@@ -2,7 +2,7 @@
 
 namespace Sts\Models;
 
-class StsLogin {
+class StsCliente {
 
     private $Resultado;
     private $Dados;
@@ -17,7 +17,7 @@ class StsLogin {
 
         $email = $Dados['email'];
         $senha = $Dados['senha'];
-
+        
         $this->Resultado = false;
         $sql = new \Sts\Models\helper\StsRead();
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Tempo de geração: 06-Dez-2021 às 19:23
+-- Tempo de geração: 09-Dez-2021 às 23:18
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.3.21
 
@@ -20,23 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `hotelcambui`
 --
-
-DELIMITER $$
---
--- Funções
---
-DROP FUNCTION IF EXISTS `fnc_soma_diaria`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `fnc_soma_diaria` (`par_id` INT) RETURNS INT(11) BEGIN
-	
-	DECLARE valor_total float;
-	SET valor_total = (SELECT DATEDIFF(checkout, checkin)*tb_quarto.valor_diaria FROM tb_quarto
-    	INNER JOIN tb_reserva on tb_reserva.id_quarto = tb_quarto.id and tb_quarto.id = par_id);
-	RETURN valor_total;
-
-
-END$$
-
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -167,20 +150,7 @@ CREATE TABLE IF NOT EXISTS `tb_cliente` (
   `email` varchar(60) NOT NULL,
   `senha` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `tb_cliente`
---
-
-INSERT INTO `tb_cliente` (`id`, `cpf`, `nome`, `email`, `senha`) VALUES
-(5, '11879934680', 'Victor', 'victor_osk8@hotmail.com', '123'),
-(6, '11879934680', 'joao', 'joao@gmail.com', '123'),
-(7, '11879934680', 'Victor', 'd@gmail.com', '123'),
-(8, 'testeee', 'Victor', 'jose@gmail.com', '123'),
-(9, 'DS', 'Lucas', 'lucas@gmail.com', '123'),
-(10, 'sdsds', 'DS', 'a@gmail.com', '123'),
-(11, '654', 'Joana', 'joana@gmail.com', '123');
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -225,19 +195,7 @@ CREATE TABLE IF NOT EXISTS `tb_reserva` (
   PRIMARY KEY (`id`),
   KEY `id_cliente` (`id_cliente`),
   KEY `id_quarto` (`id_quarto`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `tb_reserva`
---
-
-INSERT INTO `tb_reserva` (`id`, `id_cliente`, `id_quarto`, `checkin`, `checkout`, `valor_total`) VALUES
-(1, 5, 1, '2021-12-04', '2021-12-05', NULL),
-(2, 11, 1, '2021-12-03', '2021-12-16', NULL),
-(3, 11, 1, '2021-12-03', '2021-12-16', NULL),
-(4, 11, 1, '2021-12-02', '2021-12-10', NULL),
-(5, 5, 2, '2021-12-18', '2021-12-31', NULL),
-(6, 5, 1, '2021-12-18', '2021-12-22', NULL);
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
