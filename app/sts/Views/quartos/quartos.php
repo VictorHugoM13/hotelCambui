@@ -13,6 +13,7 @@
                 <div class="col-md-7 order-md-2 sobre-emp-text">
                     <h2 class="featurette-heading"><?php echo $tipo_quarto;?></h2>
                     <p class="lead"><?php echo $descricao;?></p>
+                    <p class="d-none d-md-block"><a class="btn btn-lg btn-danger" href="<?php echo URL;?>reservas" role="button">Realizar um Reserva</a></p>
                 </div>
                 <div class="col-md-5 order-md-1 sobre-emp-img">
                     <img class="featurette-image img-fluid mx-auto" src="<?php echo URL;?>assets/imagens/<?php echo $imagem;?>" alt="Generic placeholder image">

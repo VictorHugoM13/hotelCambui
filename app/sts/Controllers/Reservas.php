@@ -30,7 +30,6 @@
                 else{
                     $reserva = new \Sts\Models\helper\StsCreate();
                     $reserva->execCreate('tb_reserva', $this->Dados);
-                    echo "<script>alert('Reserva realizada com Sucesso!');</script>";
                     header('Location: '. URL . 'home');
                 }
                 

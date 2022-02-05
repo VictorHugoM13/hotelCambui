@@ -31,6 +31,7 @@ class ConfigView {
 
     public function renderizarLogin() {
         include_once 'app/sts/Views/include/header.php';
+        
         include_once 'app/sts/Views/include/footer.php';
 
         if (file_exists('app/sts/' . $this->Arquivo . '.php')) {

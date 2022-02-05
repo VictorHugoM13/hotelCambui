@@ -34,7 +34,7 @@
                         <a class="nav-link" href=""><?php echo $_SESSION['nome'];?> </a>
                     </li>
                     <li class="nav-item menu">
-                          <a class="nav-link" href="cliente">Sair </a>
+                          <a class="nav-link" href="<?php echo URL;?>cliente">Sair </a>
                     </li>
                                 <?php
                         }
@@ -42,7 +42,7 @@
                         else {
                             ?>
                                 <li class="nav-item menu">
-                                    <a class="nav-link" href="cliente">Login </a>
+                                    <a class="nav-link" href="<?php echo URL;?>/cliente">Login </a>
                                 </li>
                             <?php
                         }
