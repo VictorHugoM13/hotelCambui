@@ -10,9 +10,9 @@
     class Quartos {
 
         public function index() {
-            $modelQuartos = new \Sts\Models\StsQuartos();
-            $modelQuartos->index();
-            $carregarView = new ConfigView('Views/quartos/quartos');
+            $modelQuartos= new \Sts\Models\StsQuartos();
+            $this->Dados['sts_quarto'] = $modelQuartos->index();
+            $carregarView = new ConfigView('Views/quartos/quartos', $this->Dados);
             $carregarView->renderizar();
         }
     }
