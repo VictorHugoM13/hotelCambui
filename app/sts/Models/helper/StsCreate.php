@@ -19,6 +19,7 @@ class StsCreate extends StsConn {
         $this->Dados = $Dados;
         $this->getInstrucao();
         $this->execInstrucao();
+        
 
     }
 
@@ -26,6 +27,7 @@ class StsCreate extends StsConn {
         $colunas = implode(", ",  array_keys($this->Dados));
         $valores = ":" . implode(", :", array_keys($this->Dados));
         $this->Query = "INSERT INTO $this->Table ($colunas) VALUES ($valores)";
+        
     }
 
     private function execInstrucao() {
@@ -38,7 +40,10 @@ class StsCreate extends StsConn {
         catch (\Exception $e) {
             echo $e->getMessage();
             $this->Result = null;
+            echo "erro";
         }
+        
+        #return lastId();
     }
 
     private function connection() {

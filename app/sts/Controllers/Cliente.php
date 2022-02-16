@@ -5,13 +5,31 @@ namespace Sts\Controllers;
 class Cliente {
 
     private $Dados;
+    private $Nome;
+    private $Senha;
+    private $Email;
+    private $Cpf;
+
 
     public function index() {
 
         if (isset($_SESSION['email'])) {
             session_destroy();
         }
-        $this->Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        
+        $this->Cpf = filter_input(INPUT_POST, 'cpf');
+        $this->Nome = filter_input(INPUT_POST, 'nome');
+        $this->Email = filter_input(INPUT_POST, 'email');
+        $this->Senha = password_hash(filter_input(INPUT_POST, 'senha'), PASSWORD_DEFAULT);
+        
+        $this->Dados = [
+            'nome' => $this->Nome,
+            'senha' => $this->Senha,
+            'email' => $this->Email,
+            'cpf' => $this->Cpf    
+        ];
+
+        
 
         $this->realizarLogin();
         $this->realizarCadastro();
@@ -35,7 +53,7 @@ class Cliente {
 
     # Validando Cadastro
     public function realizarCadastro() {
-        if (!empty($this->Dados['CadUserCadastro'])) {
+        if (!empty($this->Dados['nome'])) {
 
             unset($this->Dados['CadUserCadastro']);
             # Verificando se o E-mail ja existe no banco de dados
@@ -54,7 +72,7 @@ class Cliente {
                 echo "<script>alert('CPF ja cadastrado!');</script>";
             }
             else {
-
+                
                 $cadastro = new \Sts\Models\helper\StsCreate();
 
                 $cadastro->execCreate('tb_cliente', $this->Dados);

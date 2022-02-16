@@ -15,13 +15,13 @@ class StsCliente {
     public function login(array $Dados = null) {
         $this->Dados = $Dados;
 
-        $email = $Dados['email'];
+        $email = $Dados['email'];      
         $senha = $Dados['senha'];
         
         $this->Resultado = false;
         $sql = new \Sts\Models\helper\StsRead();
 
-        $sql->execRead('tb_cliente', 'WHERE email =:email and senha = :senha LIMIT :limit', ":email={$email}&:senha={$senha}&:limit=1");
+        $sql->execRead('tb_cliente', 'WHERE email =:email LIMIT :limit', ":email={$email}&:senha={$senha}&:limit=1");
 
         if ($sql->getResultado()) {
             $Dados = $sql->getResultado();
